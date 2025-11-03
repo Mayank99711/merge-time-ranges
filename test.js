@@ -1,31 +1,15 @@
-const moduleFn = require('./my-module.js');
+const { combineActiveSlots } = require('./my-module.js');
 
-// Example 1
-const ranges1 = [
+// Example input data
+const ranges = [
   [1000, 2000],
   [2500, 4000],
   [3900, 4100],
   [8000, 9000],
   [9050, 9500]
 ];
-console.log(moduleFn.mergeTimeRanges(ranges1, 200));
-// → [ [1000, 2000], [2500, 4100], [8000, 9500] ]
 
-// Example 2
-const ranges2 = [
-  [0, 10],
-  [15, 20],
-  [25, 30]
-];
-console.log(moduleFn.mergeTimeRanges(ranges2, 4));
-// → [ [0, 10], [15, 20], [25, 30] ]
+const gaplimit = 200;
 
-// Example 3
-const ranges3 = [
-  [0, 10],
-  [12, 15],
-  [17, 25],
-  [27, 35]
-];
-console.log(moduleFn.mergeTimeRanges(ranges3, 3));
-// → [ [0, 35] ]
+// Run the function and log the result
+console.log(combineActiveSlots(ranges, gaplimit));
