@@ -1,0 +1,8 @@
+{
+  "name": "merge-time-ranges",
+  "version": "1.0.0",
+  "description": "Merges overlapping or nearby time ranges with a threshold",
+  "main": "my-module.js",
+  "author": "Mayank Goyal",
+  "license": "MIT"
+}
