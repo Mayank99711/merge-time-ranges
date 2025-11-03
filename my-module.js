@@ -25,5 +25,5 @@ const combineActiveSlots = (ranges, gaplimit) => {
 };
 
 module.exports = {
-  mergeTimeRanges
+  combineActiveSlots
 };
