@@ -1,6 +1,6 @@
-const mergeTimeRanges = (ranges, threshold) => {
+const combineActiveSlots = (ranges, gaplimit) => {
   if (!Array.isArray(ranges) || ranges.length === 0) return [];
-  if (threshold < 0) throw new Error("Threshold cannot be negative");
+  if (gaplimit < 0) throw new Error("Gaplimit cannot be negative");
 
   // Step 1: Sort ranges by start time
   const orderedRanges  = ranges.sort((a, b) => a[0] - b[0]);
@@ -9,7 +9,7 @@ const mergeTimeRanges = (ranges, threshold) => {
   let [currentStart, currentEnd] = orderedRanges[0];
 
   for (const [start, end] of orderedRanges.slice(1)) {
-    if (start <= currentEnd + threshold) {
+    if (start - currentEnd <=gaplimit) {
       currentEnd = Math.max(currentEnd, end);
     } else {
       finalRanges.push([currentStart, currentEnd]);
